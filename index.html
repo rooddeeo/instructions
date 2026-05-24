@@ -3,40 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Інструкція</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Інструкція UkrJobs</title>
     <style>
+        :root {
+            --bg-color: #f0f2f5;
+            --text-color: #222222;
+            --card-bg: #ffffff;
+            --tg-theme-button: #2481cc;
+            --tg-theme-button-text: #ffffff;
+            --accent-color: #4a90e2;
+            --border-radius: 12px;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--tg-theme-bg-color, #ffffff);
-            color: var(--tg-theme-text-color, #222222);
-            padding: 15px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 16px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0 0 8px 0;
+            color: #1f1f1f;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #666;
             margin: 0;
         }
+
         .card {
-            background: var(--tg-theme-secondary-bg-color, #f4f4f5);
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 10px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        .accent { color: var(--tg-theme-button-color, #2481cc); }
+
+        .card h2 {
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: #111;
+        }
+
+        .card h2 span {
+            margin-right: 8px;
+        }
+
+        p {
+            margin: 0 0 12px 0;
+            font-size: 15px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ol, ul {
+            margin: 0 0 12px 0;
+            padding-left: 20px;
+            font-size: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Стилизация виртуальных кнопок Telegram */
+        .tg-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            border: 1px solid #dcdcdc;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 2px 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            vertical-align: middle;
+        }
+
+        .tg-inline-btn {
+            display: inline-block;
+            background-color: #f0f3f6;
+            color: #2481cc;
+            border: 1px solid #e1e6eb;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            margin: 2px 4px;
+            text-align: center;
+        }
+
+        .tg-inline-btn.blue {
+            background-color: #2481cc;
+            color: #ffffff;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge.warning {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .important-box {
+            background-color: #fff9db;
+            border-left: 4px solid #fab005;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <h2>📖 Інструкція для Роботодавців</h2>
-    <p>Вітаємо! Цей бот допоможе вам швидко опублікувати вакансію в каналі <span class="accent"><b>UkrJobs</b></span>.</p>
-    
-    <div class="card">
-        <h3>1. Заповнення полів</h3>
-        <p>● <b>Назва вакансії:</b> Пишіть чітко (наприклад: <i>Водій категорії С</i>).</p>
-        <p>● <b>Зв'язок:</b> Можна додати максимум по 2 контакти кожного типу.</p>
+
+<div class="container">
+
+    <div class="header">
+        <h1>💼 UkrJobs</h1>
+        <p>Інструкція для роботодавців щодо публікації вакансій</p>
     </div>
 
-    <script>
-        // Информируем Telegram, что приложение готово к отображению
-        window.Telegram.WebApp.ready();
-        // Можно зафиксировать высоту, чтобы окно не прыгало
-        window.Telegram.WebApp.expand(); 
-    </script>
+    <div class="card">
+        <h2><span>🚀</span>Можливості бота</h2>
+        <p>Наш бот — це зручний конструктор, який допомагає швидко та за стандартами каналу оформити вакансію. Завдяки йому ви можете:</p>
+        <ul>
+            <li>Створювати структуровані пости без знання тегів розмітки.</li>
+            <li>Автоматично форматувати списки (обов'язки, вимоги) для гарного відображення.</li>
+            <li>Зберігати свої вакансії в особистий <b>Архів</b> та перевипускати їх в 1 клік.</li>
+            <li>Вказувати клікабельні контакти (прямі посилання на дзвінок, email чи Telegram).</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><span>📝</span>Як створити вакансію?</h2>
+        <ol>
+            <li>Натисніть кнопку головного меню <span class="tg-btn">➕ Створити вакансію</span>.</li>
+            <li><b>Назва:</b> Введіть професію (наприклад: <i>Менеджер з продажів</i>).</li>
+            <li><b>Доопис:</b> Можна додати уточнення (наприклад: <i>в автосалон, зі знанням англійської</i>) або пропустити.</li>
+            <li><b>Локація:</b> Оберіть одне або кілька міст в інтерактивному меню та натисніть <span class="tg-inline-btn">Зберегти та продовжити</span>. Якщо вакансія міжнародна, оберіть <i>"Робота за кордоном"</i> та впишіть країну.</li>
+            <li><b>Зайнятість:</b> Оберіть формат (<span class="tg-inline-btn">Повна</span>, <span class="tg-inline-btn">Неповна</span> або <span class="tg-inline-btn">Віддалена</span>).</li>
+            <li><b>Опис Компанії:</b> Вкажіть бренд та сферу діяльності.</li>
+            <li><b>Блоки вакансії:</b> Послідовно заповніть опис, пропозиції, обов'язки та вимоги. 
+                <br><small style="color: #666;">💡 <i>Кожен пункт списку пишіть з нового рядка — бот сам поставить красиві маркери ●</i></small>
+            </li>
+            <li><b>Соцмережі та Сайт:</b> Ви можете додати посилання на ваші ресурси за допомогою кнопкового меню.</li>
+            <li><b>Конструктор зв'язку:</b> Додайте телефони, email або акаунти Telegram. Бот перевірить правильність номерів і зробить їх клікабельними. Після завершення натисніть <span class="tg-inline-btn">Зберегти та продовжити</span>.</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2><span>👀</span>Перевірка та Модерація</h2>
+        <p>Після заповнення бот покаже вам готовий вигляд вакансії <b>(ПЕРЕГЛЯД)</b>. Уважно перевірте текст.</p>
+        <p>Вам доступні три дії:</p>
+        <ul>
+            <li><span class="tg-inline-btn blue">Відправити на модерацію</span> — вакансія надходить адмінам.</li>
+            <li><span class="tg-inline-btn">Редагувати</span> — відкриває меню, де можна точково змінити будь-яке поле (назву, місто, умови), не переписуючи все з початку.</li>
+            <li><span class="tg-inline-btn">Почати з початку</span> — повністю скидає поточну чернетку.</li>
+        </ul>
+        <div class="important-box">
+            <b>⏱ Час перевірки:</b> Модерація працює з <b>8:00 до 20:00</b>. Якщо ви надіслали вакансію вночі, бот попередить вас, і адміни перевірять її вранці в першу чергу!
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><span>🔄</span>Робота з архівом (Повторний випуск)</h2>
+        <p>Вам більше не потрібно заново вводити опис вакансії, якщо ви шукаєте співробітника повторно!</p>
+        <ol>
+            <li>У головному меню натисніть <span class="tg-btn">🔄 Повторна публікація</span> <i>(кнопка з'являється лише після першої успішної публікації)</i>.</li>
+            <li>Оберіть потрібну вакансію зі списку ваших минулих оголошень.</li>
+            <li>Натисніть <span class="tg-inline-btn">🔄 Опублікувати цю вакансію</span> — вона завантажиться у конструктор, де її можна відразу відправити модераторам або спочатку відредагувати.</li>
+        </ol>
+        <p>Бот надійно зберігає до 20 ваших останніх унікальних вакансій, навіть якщо наш сервер буде перезавантажено.</p>
+    </div>
+
+    <div class="card">
+        <h2><span>⚠️</span>Антиспам-правила</h2>
+        <p>Для захисту каналу від дублів діє суворе правило:</p>
+        <p><b>Повторна публікація абсолютно ОДНАКОВОЇ вакансії дозволена не частіше ніж 1 раз на 3 дні.</b></p>
+        <p>Якщо ви спробуєте надіслати таку саму вакансію раніше, бот заблокує відправку і підкаже точну дату й час, коли публікація знову стане безкоштовною.</p>
+    </div>
+
+</div>
+
 </body>
 </html>
